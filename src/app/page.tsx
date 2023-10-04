@@ -8,6 +8,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { clusterApiUrl } from '@solana/web3.js';
 import SolanaWalletApp from './components/solwalletapp';
 
+
 const page = () => {
 
   const { publicKey, sendTransaction , signTransaction } = useWallet();
@@ -16,10 +17,14 @@ const page = () => {
   return (
     <div>
       Hello1!!
-      <WalletMultiButton>
+      <div className="flex bg-slate-400 flex-auto">
+        <WalletMultiButton>
 
-      </WalletMultiButton>
-     < SolanaWalletApp ></SolanaWalletApp>
+        </WalletMultiButton>
+      </div>
+      {publicKey?.toBase58() ? < SolanaWalletApp ></SolanaWalletApp> : ''}
+      
+    
 
     </div>
   )
